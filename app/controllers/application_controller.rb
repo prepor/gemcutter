@@ -1,3 +1,4 @@
+Bundler.require_env Rails.env
 class ApplicationController < ActionController::Base
 
   include Clearance::Authentication

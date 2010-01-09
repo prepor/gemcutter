@@ -1,6 +1,7 @@
 RUBYGEM_NAME_MATCHER = /[A-Za-z0-9\-\_\.]+/
 
-ActionController::Routing::Routes.draw do |map|
+Gemcutter::Application.routes do
+=begin
 
   ################################################################################
   # API v1
@@ -95,4 +96,5 @@ ActionController::Routing::Routes.draw do |map|
 
   map.root :controller => "home", :action => "index"
 
+=end
 end

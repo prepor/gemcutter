@@ -11,6 +11,6 @@ db/*.sqlite3
 config/database.yml
 *.sql
 _site/
-vendor/bundler_gems/*
-!vendor/bundler_gems/ruby/1.8/cache/
+vendor/gems/*
+!vendor/gems/ruby/1.8/cache/
 bin/
