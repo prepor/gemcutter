@@ -6,3 +6,5 @@ module Gemcutter
     config.action_mailer.delivery_method = :sendmail
   end
 end
+
+Bundler.require_env Rails.env

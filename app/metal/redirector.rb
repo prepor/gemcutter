@@ -1,5 +1,3 @@
-require 'sinatra'
-
 class Redirector < Sinatra::Default
   %w[book chapter export read shelf syndicate].each do |resource|
     get "/#{resource}*" do
