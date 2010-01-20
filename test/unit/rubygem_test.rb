@@ -218,7 +218,8 @@ class RubygemTest < ActiveSupport::TestCase
     end
 
     should "return a bunch of json" do
-      Factory(:version, :rubygem => @rubygem)
+      version = Factory(:version, :rubygem => @rubygem)
+      Factory(:development_dependency, :version => version)
       hash = JSON.parse(@rubygem.to_json)
       assert_equal @rubygem.name, hash["name"]
       assert_equal @rubygem.slug, hash["slug"]
@@ -229,6 +230,7 @@ class RubygemTest < ActiveSupport::TestCase
       assert_equal @rubygem.versions.latest.info, hash["info"]
       assert_equal "http://#{HOST}/gems/#{@rubygem.name}", hash["project_uri"]
       assert_equal "http://#{HOST}/gems/#{@rubygem.versions.latest.full_name}.gem", hash["gem_uri"]
+      assert_equal @rubygem.versions.latest.dependencies.development.first.rubygem.name, hash["development_dependencies"].first["name"]
     end
   end
 

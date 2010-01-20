@@ -19,5 +19,9 @@ class Dependency < ActiveRecord::Base
       :scope        => dependency.type.to_s
     )
   end
+  
+  def to_json(options = {})
+    { :name => rubygem.name, :version => version.number }.to_json
+  end
 
 end
